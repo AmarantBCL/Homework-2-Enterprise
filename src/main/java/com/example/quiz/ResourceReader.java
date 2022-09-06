@@ -3,6 +3,7 @@ package com.example.quiz;
 import lombok.Getter;
 import org.springframework.core.io.ClassPathResource;
 
+import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,9 +18,9 @@ public class ResourceReader {
 
     public ResourceReader(String filePath) {
         resource = new ClassPathResource(filePath);
-        read(); // TODO redo
     }
 
+    @PostConstruct
     public void read() {
         records = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(
