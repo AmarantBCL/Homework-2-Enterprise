@@ -1,14 +1,14 @@
 package com.example.quiz;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootApplication
 public class QuizApplication {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("beans.xml");
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(AppConfiguration.class);
 
         UserInformationService userInformationService =
                 context.getBean(UserInformationService.class);
@@ -16,7 +16,7 @@ public class QuizApplication {
                 context.getBean(QuestionService.class);
 
         userInformationService.requestName();
-        questionService.ask();
+        questionService.execute();
     }
 
 }

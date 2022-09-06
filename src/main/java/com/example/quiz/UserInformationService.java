@@ -10,6 +10,10 @@ import java.util.Scanner;
 public class UserInformationService {
     private User user;
 
+    public UserInformationService(User user) {
+        this.user = user;
+    }
+
     public void requestName() {
         Scanner scanner = new Scanner(System.in);
         boolean isFilled = false;
