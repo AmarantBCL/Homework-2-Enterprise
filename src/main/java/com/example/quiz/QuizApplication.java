@@ -9,14 +9,9 @@ public class QuizApplication {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfiguration.class);
-
-        UserInformationService userInformationService =
-                context.getBean(UserInformationService.class);
-        QuestionService questionService =
-                context.getBean(QuestionService.class);
-
+        UserInformationService userInformationService = context.getBean(UserInformationService.class);
+        QuestionService questionService = context.getBean(QuestionService.class);
         userInformationService.requestName();
         questionService.execute();
     }
-
 }
