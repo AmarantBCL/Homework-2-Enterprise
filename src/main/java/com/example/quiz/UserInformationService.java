@@ -2,31 +2,33 @@ package com.example.quiz;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Scanner;
 
 @Getter
 @Setter
 public class UserInformationService {
+    @Autowired
     private User user;
+    @Autowired
+    private LanguageHandler languageHandler;
 
     public void requestName() {
         Scanner scanner = new Scanner(System.in);
-        boolean isFilled = false;
-        while (!isFilled) {
-            System.out.print("Enter your first name: ");
+        while (isInputEmpty()) {
+            System.out.print(languageHandler.getBundle().getString("enterFirstName"));
             user.setFirstName(scanner.nextLine());
-            System.out.print("Enter your last name: ");
+            System.out.print(languageHandler.getBundle().getString("enterLastName"));
             user.setLastName(scanner.nextLine());
-            if (isInputNotEmpty()) {
-                isFilled = true;
-            } else {
-                System.out.println("First name and last name cannot be empty!");
+            if (isInputEmpty()) {
+                System.out.println(languageHandler.getBundle().getString("wrongName"));
             }
         }
     }
 
-    private boolean isInputNotEmpty() {
-        return !user.getFirstName().isEmpty() && !user.getLastName().isEmpty();
+    private boolean isInputEmpty() {
+        return user.getFirstName() == null || user.getLastName() == null
+                || user.getFirstName().isEmpty() || user.getLastName().isEmpty();
     }
 }
