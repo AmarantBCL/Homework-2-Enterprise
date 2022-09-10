@@ -1,5 +1,6 @@
-package com.example.quiz;
+package com.example.quiz.service;
 
+import com.example.quiz.User;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;

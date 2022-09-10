@@ -1,5 +1,9 @@
 package com.example.quiz;
 
+import com.example.quiz.service.LanguageHandler;
+import com.example.quiz.service.QuestionService;
+import com.example.quiz.service.ResourceReader;
+import com.example.quiz.service.UserInformationService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
