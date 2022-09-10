@@ -1,5 +1,7 @@
 package com.example.quiz;
 
+import com.example.quiz.service.QuestionService;
+import com.example.quiz.service.UserInformationService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

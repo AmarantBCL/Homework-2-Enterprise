@@ -1,5 +1,6 @@
-package com.example.quiz;
+package com.example.quiz.service;
 
+import com.example.quiz.service.LanguageHandler;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
